@@ -3,6 +3,7 @@ import Pizza from '../modals/Pizza'
 import { AiFillEdit } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 import EditPizzaForm from './EditPizzaForm';
+import { Link } from 'react-router-dom';
 
 
 interface SinglePizzaProps {
@@ -25,7 +26,11 @@ const SinglePizza: FC<SinglePizzaProps> = ({ pizza, updatePizza, deletePizza }) 
   return (
     <div className='pizza'>
         <img src={`/images/${pizza.img}`} alt={pizza.title} />
-        <h2>{pizza.title}</h2>
+        <h2>
+            <Link to={`/pizza/${pizza.id}`}>
+                 {pizza.title}
+            </Link>
+        </h2>
         <span>{pizza.price}₽</span>
 
         <div className='pizza-controls'>
